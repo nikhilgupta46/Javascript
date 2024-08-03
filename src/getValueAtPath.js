@@ -2,19 +2,10 @@ const getArrayedPath = (path) => {
   if (path.length === 0) {
     return [];
   }
-  let splittedPath = path.split(".");
-  splittedPath.forEach((sp, index) => {
-    if (sp.length > 1) {
-      let splittedAgain = sp.split("[");
-      splittedAgain.forEach((sp2, j) => {
-        if (j > 0) {
-          splittedPath.splice(index + j, 0, sp2[0]);
-        } else {
-          splittedPath.splice(index + j, 1, sp2);
-        }
-      });
-    }
-  });
+  path = path.replaceAll("[", ".");
+  path = path.replaceAll("]", ".");
+  const splittedPath = path.split(".").filter(Boolean);
+  console.log("splittedPath", splittedPath);
   return splittedPath;
 };
 
