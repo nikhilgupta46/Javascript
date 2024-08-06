@@ -22,7 +22,6 @@ const threeSum = (nums = []) => {
         return -1;
       }
     });
-    console.log(sortedNums);
     let k = 0;
     while (k < length - 2) {
       const firstPivot = sortedNums.shift();
